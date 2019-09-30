@@ -1,0 +1,43 @@
+Since without ORC format in Hive, we are not be able to UPDATE the Hive table. 
+In this file, we will convert CSV file into Hive table with ORC format.
+CSV file must be in HDFS. In this case, our CSV file is belong to folder called "gogo-hive" (/user/gogo-hive).
+
+
+1. Create an EXTERNAL table for storing a CSV file information.
+
+CREATE EXTERNAL TABLE external_person ( 
+  	id INT, 
+	lastname STRING, 
+	firstname STRING)
+
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+STORED AS textfile
+LOCATION '/user/gogo-hive';
+
+------------------------------------------------------------------
+
+2. Create an Hive table with ORC table.
+
+CREATE TABLE person_ACID (id INT,
+			  lastname STRING,
+			  firstname STRING)
+						  
+CLUSTERED BY (persid) INTO 3 BUCKETS
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+STORED AS ORC
+LOCATION '/user/test_jaa/456'
+TBLPROPERTIES ('transactional'='true');
+
+------------------------------------------------------------------
+
+3. Taking the data from csv_file to EXTERNAL table.
+
+LOAD DATA INPATH '/user/practical-hive/csv_file.csv INTO external_person
+
+------------------------------------------------------------------
+
+4. Taking the data from EXTERNAL table to Hive table
+
+INSERT INTO TABLE person_ACID SELECT * FROM external_person
+
+------------------------------------------------------------------
