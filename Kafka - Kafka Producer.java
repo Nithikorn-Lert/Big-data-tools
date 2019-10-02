@@ -4,7 +4,7 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 // Ref: Manish Kumar, Chanchal Singh - Building Data Streaming Applications with Apache Kafka
-// before run this file, you must change file name to My_kafka_producer(.java)
+// before run this file, you must change the file name to My_kafka_producer(.java)
 // P. = Producer, ack. = acknowledge
 public class My_kafka_producer {
     public static void main (final String[] args) {
