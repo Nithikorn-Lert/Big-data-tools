@@ -4,7 +4,7 @@ import org.apache.log4j.Logger; // log4j is a tool to help the programmer output
 import java.util.*;
 
 // Ref: Manish Kumar, Chanchal Singh - Building Data Streaming Applications with Apache Kafka
-//　before run this file, you must change file name to My_kafka_consumer(.scala)
+//　before run this file, you must change the file name to My_kafka_consumer(.scala)
 public class My_kafka_consumer {
 
     private static final Logger log = Logger.getLogger(My_kafka_consumer.class);
