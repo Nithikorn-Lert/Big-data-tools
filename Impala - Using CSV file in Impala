@@ -1,0 +1,54 @@
+Since Impala does not support CSV file format we need to call csv file via apache HIVE.
+In the following code below we used Cloudera Framework version 5.13.0
+Notice: the csv file must be exist in HDFS.
+
+Ref: https://bigdataprogrammers.com/load-csv-file-into-hive-orc-table/
+
+The content in CSV file is
+18282782,NW
+1929SEGH2,BSTN
+172u8562,PLA
+121232,JHK
+3443453,AG
+198WS238,AGS
+
+
+1. Go to Hue and select Hive query. we will crate an external table via Hive.
+
+    USE salesdb;
+
+    CREATE EXTERNAL TABLE sample1(
+
+        ID STRING,
+        Locations STRING
+        )
+
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    STORED AS textfile
+    LOCATION '/user/new_jaa';
+    
+-----------------------------------------------------------------------------------
+
+
+2. Load data to the table. Our csv file is already exsit on HDFS path.    
+
+    LOAD DATA INPATH '/user/cloudera/sample_1.csv' INTO TABLE sample1;
+    
+ -----------------------------------------------------------------------------------
+ 
+ 3. Go to Imapala query engine. 
+ 
+  SELECT * FROM sample1;
+  
+## Result ###########################  
+    id          locations
+1 	18282782 	  NW
+2 	1929SEGH2 	BSTN
+3 	172u8562   	PLA
+4 	121232 	    JHK
+5 	3443453 	  AG
+6 	198WS238 	  AGS
+
+#####################################
+
+-----------------------------------------------------------------------------------
