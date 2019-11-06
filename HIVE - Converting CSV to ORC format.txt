@@ -32,7 +32,7 @@ TBLPROPERTIES ('transactional'='true');
 
 3. Taking the data from csv_file to EXTERNAL table.
 
-LOAD DATA INPATH '/user/practical-hive/csv_file.csv INTO external_person
+LOAD DATA INPATH '/user/practical-hive/csv_file.csv INTO TABLE external_person
 
 ------------------------------------------------------------------
 
