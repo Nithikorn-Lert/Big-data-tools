@@ -1,10 +1,12 @@
 /*
-Since files in HDFS have to be serialized and deserialized, Writable (Wrapper) classes are required in Hadoop.
-So, in this file the basic of Hadoop wrapper classes are reviewed.
 notice: before run this file you need to change the filename to Basic_wrapper.java
 
+Since any files in HDFS have to be serialized and deserialized, Writable (Wrapper) classes are required in Hadoop.
+So, in this file the basic of Hadoop wrapper classes are reviewed.
+There are several typre of wrapper class in Java as shown below.
+
 Primitive Data Type / Wrapper Class
-    byte	            Byte
+    byte	            Byte            
     short	            Short
     int	                Integer
     long	            Long
