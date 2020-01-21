@@ -55,11 +55,11 @@ public class WordCount1_book extends Configured implements Tool {
 
 		private Text word = new Text();
 
-		public void map(Object key, Text value, Context context)	/*	
-	    class:      map(KEYIN key, VALUEIN value, Context context)
-        interface:  map(WritableComparable, Writable, Context) */
+		public void map(Object key, Text value, Context context)  /*	
+	   	class:      map(KEYIN key, VALUEIN value, Context context)
+        	interface:  map(WritableComparable, Writable, Context) */
 		// Context, object to interact with rest of hadoop system.
-			// It unifies the role of JobConf, OutputCollector, and Reporter from old API.
+		   // It unifies the role of JobConf, OutputCollector, and Reporter from old API.
 		
 			throws IOException, InterruptedException {
 				// wordcount function
